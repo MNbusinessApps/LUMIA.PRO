@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L.U.M.I.A - Liability & Underwriting Management Insurance Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>L.U.M.I.A</span>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="welcome">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="new-client">New Client</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="current-client">Current Client</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="asset-calculator">Asset Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="script-page">Script Training</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="client-summary">Client Summary</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Welcome Page -->
+        <section id="welcome" class="page active">
+            <div class="container">
+                <div class="welcome-content">
+                    <div class="welcome-header">
+                        <h1><i class="fas fa-shield-alt"></i> L.U.M.I.A</h1>
+                        <h2>Liability & Underwriting Management Insurance Assistant</h2>
+                        <p>Comprehensive risk assessment and coverage analysis for insurance professionals</p>
+                    </div>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card" onclick="showPage('new-client')">
+                            <i class="fas fa-user-plus"></i>
+                            <h3>New Client</h3>
+                            <p>Create new client profiles and initial assessments</p>
+                        </div>
+                        <div class="feature-card" onclick="showPage('current-client')">
+                            <i class="fas fa-users"></i>
+                            <h3>Current Client</h3>
+                            <p>Update existing client information and coverage</p>
+                        </div>
+                        <div class="feature-card" onclick="showPage('asset-calculator')">
+                            <i class="fas fa-calculator"></i>
+                            <h3>Asset Calculator</h3>
+                            <p>Calculate total assets and liability exposure</p>
+                        </div>
+                        <div class="feature-card" onclick="showPage('script-page')">
+                            <i class="fas fa-comments"></i>
+                            <h3>Script Training</h3>
+                            <p>Learn effective sales techniques and client communication</p>
+                        </div>
+                        <div class="feature-card" onclick="showPage('dashboard')">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>Dashboard</h3>
+                            <p>Overview of all clients and their coverage status</p>
+                        </div>
+                        <div class="feature-card" onclick="showPage('client-summary')">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Client Summary</h3>
+                            <p>Generate printable client reports and recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Client Page -->
+        <section id="new-client" class="page">
+            <div class="container">
+                <h1><i class="fas fa-user-plus"></i> New Client</h1>
+                <form id="new-client-form" class="form-container">
+                    <div class="form-section">
+                        <h3>Client Information</h3>
+                        <div class="form-group">
+                            <label class="form-label">Client Name(s)</label>
+                            <input type="text" id="new-client-name" class="form-input" placeholder="John & Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="new-client-email" class="form-input" placeholder="client@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" id="new-client-phone" class="form-input" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <textarea id="new-client-address" class="form-input" placeholder="Street Address" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Asset Information</h3>
+                        <div class="form-group">
+                            <label class="form-label">Home Value</label>
+                            <input type="number" id="new-home-value" class="form-input" placeholder="500000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Vehicle Value</label>
+                            <input type="number" id="new-vehicle-value" class="form-input" placeholder="35000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Annual Income</label>
+                            <input type="number" id="new-income" class="form-input" placeholder="75000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Life Insurance Coverage</label>
+                            <input type="number" id="new-life-insurance" class="form-input" placeholder="250000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Investment Account Value</label>
+                            <input type="number" id="new-investments" class="form-input" placeholder="150000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Risk Factors</h3>
+                        <div class="form-group">
+                            <label class="form-label">Claims History</label>
+                            <select id="new-claims-history" class="form-input" required>
+                                <option value="">Select claims history</option>
+                                <option value="none">No Claims</option>
+                                <option value="1-2">1-2 Claims</option>
+                                <option value="3-5">3-5 Claims</option>
+                                <option value="more">More than 5 Claims</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Safety Features</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="security-system" class="checkbox-input">
+                                    Security System
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="fire-alarm" class="checkbox-input">
+                                    Fire Alarm
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="sprinklers" class="checkbox-input">
+                                    Sprinkler System
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" value="storm-resistant" class="checkbox-input">
+                                    Storm Resistant
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm('new-client-form')">Reset</button>
+                        <button type="submit" class="btn btn-primary">Save Client</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Current Client Page -->
+        <section id="current-client" class="page">
+            <div class="container">
+                <h1><i class="fas fa-users"></i> Current Client</h1>
+                
+                <div class="form-container">
+                    <div class="form-section">
+                        <h3>Select Client</h3>
+                        <div class="form-group">
+                            <label class="form-label">Choose Client to Update</label>
+                            <select id="current-client-select" class="form-input">
+                                <option value="">Select a client...</option>
+                            </select>
+                        </div>
+                        <div id="client-info" class="client-info" style="display: none;">
+                            <h4>Current Client Information</h4>
+                            <div id="client-details"></div>
+                        </div>
+                    </div>
+
+                    <form id="update-client-form" class="form-container" style="display: none;">
+                        <div class="form-section">
+                            <h3>Update Client Information</h3>
+                            <div class="form-group">
+                                <label class="form-label">Client Name(s)</label>
+                                <input type="text" id="update-client-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" id="update-client-email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" id="update-client-phone" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <textarea id="update-client-address" class="form-input" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Update Asset Information</h3>
+                            <div class="form-group">
+                                <label class="form-label">Home Value</label>
+                                <input type="number" id="update-home-value" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Vehicle Value</label>
+                                <input type="number" id="update-vehicle-value" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Annual Income</label>
+                                <input type="number" id="update-income" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Life Insurance Coverage</label>
+                                <input type="number" id="update-life-insurance" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Investment Account Value</label>
+                                <input type="number" id="update-investments" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Risk Factors</h3>
+                            <div class="form-group">
+                                <label class="form-label">Claims History</label>
+                                <select id="update-claims-history" class="form-input" required>
+                                    <option value="">Select claims history</option>
+                                    <option value="none">No Claims</option>
+                                    <option value="1-2">1-2 Claims</option>
+                                    <option value="3-5">3-5 Claims</option>
+                                    <option value="more">More than 5 Claims</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Safety Features</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="security-system" class="checkbox-input" id="update-security">
+                                        Security System
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="fire-alarm" class="checkbox-input" id="update-fire">
+                                        Fire Alarm
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="sprinklers" class="checkbox-input" id="update-sprinklers">
+                                        Sprinkler System
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="storm-resistant" class="checkbox-input" id="update-storm">
+                                        Storm Resistant
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="showPage('current-client')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update Client</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Asset Calculator Page -->
+        <section id="asset-calculator" class="page">
+            <div class="container">
+                <h1><i class="fas fa-calculator"></i> Asset Calculator</h1>
+                
+                <form id="asset-calculator-form" class="form-container">
+                    <div class="form-section">
+                        <h3>Asset Values</h3>
+                        <div class="form-group">
+                            <label class="form-label">Home Value</label>
+                            <input type="number" id="calc-home-value" class="form-input" placeholder="500000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Vehicle Value</label>
+                            <input type="number" id="calc-vehicle-value" class="form-input" placeholder="35000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Annual Income</label>
+                            <input type="number" id="calc-income" class="form-input" placeholder="75000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Life Insurance Coverage</label>
+                            <input type="number" id="calc-life-insurance" class="form-input" placeholder="250000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Investment Account Value</label>
+                            <input type="number" id="calc-investments" class="form-input" placeholder="150000">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm('asset-calculator-form')">Reset</button>
+                        <button type="submit" class="btn btn-primary">Calculate Liability Exposure</button>
+                    </div>
+                </form>
+
+                <div id="asset-results" class="results-section" style="display: none;">
+                    <h3>Asset Summary & Liability Exposure</h3>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <label>Home Value:</label>
+                            <span id="home-value-display">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>Vehicle Value:</label>
+                            <span id="vehicle-value-display">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>Annual Income (10x):</label>
+                            <span id="income-display">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>Life Insurance Gap:</label>
+                            <span id="life-insurance-display">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>Investment Protection:</label>
+                            <span id="investment-display">$0</span>
+                        </div>
+                        <div class="result-item highlight">
+                            <label><strong>Total Liability Exposure:</strong></label>
+                            <span id="total-exposure">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="insurance-tier-results">
+                        <h4>Recommended Insurance Tier</h4>
+                        <div id="tier-recommendation" class="tier-display"></div>
+                        <div id="tier-explanation" class="tier-explanation"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Script Training Page -->
+        <section id="script-page" class="page">
+            <div class="container">
+                <h1><i class="fas fa-comments"></i> Script Training</h1>
+                <p class="page-intro">Master effective sales techniques and client communication for insurance appointments</p>
+                
+                <div class="script-sections">
+                    
+                    <div class="script-section">
+                        <h3><i class="fas fa-handshake"></i> Opening Script</h3>
+                        <div class="script-content">
+                            <h4>Introduction & Rapport Building</h4>
+                            <div class="script-text">
+                                <p><strong>"Hi [Client Name], thank you for taking the time to meet with me today. I'm [Your Name] from [Agency Name], and I appreciate you allowing me to review your insurance needs."</strong></p>
+                                
+                                <p><strong>"Before we dive into the details, I'd love to learn a bit more about you. How long have you been in your current position? What do you enjoy most about your work?"</strong></p>
+                                
+                                <p><strong>"That's fantastic! Now, I want to make sure you understand exactly why we're here today. We're not just talking about insurance - we're talking about protecting everything you've worked so hard to build. Does that make sense?"</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> The Liability Lesson</h3>
+                        <div class="script-content">
+                            <h4>Why Liability Limits Matter</h4>
+                            <div class="script-text">
+                                <p><strong>"Let me ask you a question that might seem a bit dramatic, but it's crucial to understand: What would happen if you were in an accident and were found legally responsible for seriously injuring someone?"</strong></p>
+                                
+                                <p><strong>"I want you to think about this scenario: You accidentally rear-end a doctor in a Lexus at a stoplight. That doctor has to go to the emergency room, needs surgery, and can't work for 6 months. This doctor makes $500,000 per year."</strong></p>
+                                
+                                <p><strong>"Let's break down the potential costs:"</strong></p>
+                                <ul>
+                                    <li>Emergency room and surgery: $150,000</li>
+                                    <li>6 months of lost income (doctor): $250,000</li>
+                                    <li>Ongoing medical care: $100,000</li>
+                                    <li>Pain and suffering: $200,000</li>
+                                    <li><strong>Total potential liability: $700,000</strong></li>
+                                </ul>
+                                
+                                <p><strong>"Now, here's the critical question: Do you have $700,000 sitting in your checking account to cover this if your insurance doesn't? Most people don't - and that's exactly why we have liability insurance."</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-dollar-sign"></i> Asset Protection Logic</h3>
+                        <div class="script-content">
+                            <h4>Connecting Assets to Coverage Needs</h4>
+                            <div class="script-text">
+                                <p><strong>"Let me show you how we determine what you need. We look at five key areas of your financial picture:"</strong></p>
+                                
+                                <div class="asset-breakdown">
+                                    <div class="asset-item">
+                                        <strong>1. Your Home ($[home value])</strong>
+                                        <p>This represents your family's shelter and biggest asset. If someone sues you for more than your liability coverage, they can attach your home.</p>
+                                    </div>
+                                    
+                                    <div class="asset-item">
+                                        <strong>2. Your Vehicle ($[vehicle value])</strong>
+                                        <p>Not just the car's value, but the potential damage you could cause in an accident.</p>
+                                    </div>
+                                    
+                                    <div class="asset-item">
+                                        <strong>3. Your Income (${[income]}/year)</strong>
+                                        <p>We typically calculate 10 times your annual income as the minimum liability protection you should have.</p>
+                                    </div>
+                                    
+                                    <div class="asset-item">
+                                        <strong>4. Life Insurance Gap ($[life insurance difference])</strong>
+                                        <p>If you don't have enough life insurance, liability claims could affect your family's future.</p>
+                                    </div>
+                                    
+                                    <div class="asset-item">
+                                        <strong>5. Investment Accounts ($[investments])</strong>
+                                        <p>Your retirement and investment accounts need protection from liability claims.</p>
+                                    </div>
+                                </div>
+                                
+                                <p><strong>"Based on your specific situation, your total liability exposure is $[calculated exposure]. This means you should have at least that much in liability coverage - probably more."</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-layer-group"></i> Insurance Tier Recommendations</h3>
+                        <div class="script-content">
+                            <h4>Explaining Coverage Levels</h4>
+                            <div class="script-text">
+                                <p><strong>"Let me explain the different coverage tiers and why we recommend certain levels:"</strong></p>
+                                
+                                <div class="tier-explanation">
+                                    <div class="tier-item basic">
+                                        <h5>Tier 1: Up to $100,000</h5>
+                                        <p><strong>Who it's for:</strong> Basic coverage for minimal assets</p>
+                                        <p><strong>Reality check:</strong> This barely covers a minor accident. In today's world, this is like wearing a raincoat in a hurricane.</p>
+                                    </div>
+                                    
+                                    <div class="tier-item standard">
+                                        <h5>Tier 2: $100,000 - $300,000</h5>
+                                        <p><strong>Who it's for:</strong> Moderate asset protection</p>
+                                        <p><strong>Reality check:</strong> Better, but still insufficient for most middle-class families. One serious accident could wipe out your savings.</p>
+                                    </div>
+                                    
+                                    <div class="tier-item enhanced">
+                                        <h5>Tier 3: $300,000 - $500,000</h5>
+                                        <p><strong>Who it's for:</strong> Solid protection for established families</p>
+                                        <p><strong>Reality check:</strong> This is where most families should be. It provides real protection without being excessive.</p>
+                                    </div>
+                                    
+                                    <div class="tier-item premium">
+                                        <h5>Tier 4: $500,000+</h5>
+                                        <p><strong>Who it's for:</strong> High net worth individuals and those wanting maximum protection</p>
+                                        <p><strong>Reality check:</strong> For most people, this is the smart choice. The peace of mind is worth the extra cost.</p>
+                                    </div>
+                                </div>
+                                
+                                <p><strong>"Based on your assets and risk profile, we recommend [specific tier]. This gives you the best balance of protection and value."</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-check-circle"></i> Closing Techniques</h3>
+                        <div class="script-content">
+                            <h4>Effective Closing Strategies</h4>
+                            <div class="script-text">
+                                <div class="closing-technique">
+                                    <h5>1. The Assumption Close</h5>
+                                    <p><strong>"Great! Based on everything we've discussed, I have the perfect policy for you. The [tier] coverage we're recommending will give you exactly what you need. How does Tuesday work for getting your policy started?"</strong></p>
+                                </div>
+                                
+                                <div class="closing-technique">
+                                    <h5>2. The Summary Close</h5>
+                                    <p><strong>"Let me make sure I have this right: You have $[assets] in total assets, your liability exposure is $[exposure], and we agree that you need at least $[recommended] in coverage to properly protect your family. Sound correct?"</strong></p>
+                                    <p><strong>"Perfect. Then the [tier] plan is exactly what you need. Shall we get the paperwork started?"</strong></p>
+                                </div>
+                                
+                                <div class="closing-technique">
+                                    <h5>3. The Choice Close</h5>
+                                    <p><strong>"I have two options for you today. We can start with the [tier] plan, which I recommend, or we could do the [lower tier] plan. Based on everything we've discussed, which one feels right to you?"</strong></p>
+                                </div>
+                                
+                                <div class="closing-technique">
+                                    <h5>4. The Urgency Close</h5>
+                                    <p><strong>"I want to be upfront with you - in my experience, people who delay making this decision often end up wishing they had acted sooner. You're here because you understand the importance of protecting your family. What questions do you have about getting started today?"</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-phone"></i> Follow-Up Scripts</h3>
+                        <div class="script-content">
+                            <h4>Post-Appointment Communication</h4>
+                            <div class="script-text">
+                                <div class="follow-up-item">
+                                    <h5>Same Day Follow-Up</h5>
+                                    <p><strong>"Hi [Name], this is [Your Name] from [Agency]. I wanted to thank you for taking time to meet with me today. I know we covered a lot of information, and I wanted to make sure you have my contact information if any questions come up. I'll be sending over the formal quotes by end of business tomorrow. Does that work for you?"</strong></p>
+                                </div>
+                                
+                                <div class="follow-up-item">
+                                    <h5>Quote Delivery</h5>
+                                    <p><strong>"Hi [Name], this is [Your Name]. I have your insurance quotes ready. I wanted to go over them with you personally rather than just sending an email. Do you have 10 minutes this afternoon to review them together? I think you're going to be pleased with what we found."</strong></p>
+                                </div>
+                                
+                                <div class="follow-up-item">
+                                    <h5>Closing Follow-Up</h5>
+                                    <p><strong>"Hi [Name], this is [Your Name]. I wanted to check in and see if you've had a chance to review the information I sent over. I know it's an important decision, and I want to make sure you have everything you need to move forward. What questions can I answer for you?"</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="script-section">
+                        <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+                        <div class="script-content">
+                            <h4>Advanced Sales Techniques</h4>
+                            <div class="script-text">
+                                <ul class="pro-tips">
+                                    <li><strong>Listen More Than You Talk:</strong> Let clients tell you about their concerns and goals.</li>
+                                    <li><strong>Use Their Name:</strong> People love hearing their own name. Use it naturally throughout the conversation.</li>
+                                    <li><strong>Paint Pictures:</strong> Use vivid examples and scenarios to help clients visualize the protection they need.</li>
+                                    <li><strong>Address Objections Head-On:</strong> Don't avoid difficult topics - address them directly with facts and empathy.</li>
+                                    <li><strong>Focus on Benefits, Not Features:</strong> Always connect policy features back to what they mean for the client and their family.</li>
+                                    <li><strong>Create Urgency Ethically:</strong> Emphasize the importance of protection without creating fear or pressure.</li>
+                                    <li><strong>Follow Up Consistently:</strong> Most sales happen after the first meeting. Persistence pays off.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page">
+            <div class="container">
+                <h1><i class="fas fa-chart-bar"></i> Dashboard</h1>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-content">
+                            <h3 id="total-clients">0</h3>
+                            <p>Total Clients</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-home"></i>
+                        <div class="stat-content">
+                            <h3 id="total-home-value">$0</h3>
+                            <p>Total Home Value</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="stat-content">
+                            <h3 id="high-risk-count">0</h3>
+                            <p>High Risk Clients</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="stat-content">
+                            <h3 id="avg-coverage">$0</h3>
+                            <p>Avg Recommended Coverage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clients-section">
+                    <h3>Client Overview</h3>
+                    <div id="clients-grid" class="clients-grid">
+                        <!-- Client cards will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Summary Page -->
+        <section id="client-summary" class="page">
+            <div class="container">
+                <h1><i class="fas fa-file-alt"></i> Client Summary Report</h1>
+                
+                <div class="summary-controls">
+                    <div class="form-group">
+                        <label class="form-label">Select Client for Summary</label>
+                        <select id="summary-client-select" class="form-input">
+                            <option value="">Select a client...</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="generateClientSummary()">Generate Summary</button>
+                    <button type="button" class="btn btn-secondary" onclick="printSummary()">Print Summary</button>
+                </div>
+
+                <div id="summary-report" class="summary-report" style="display: none;">
+                    <div class="report-header">
+                        <h2>L.U.M.I.A Insurance Assessment Report</h2>
+                        <div class="report-date" id="report-date"></div>
+                    </div>
+
+                    <div class="client-info-section">
+                        <h3>Client Information</h3>
+                        <div class="info-grid" id="client-info-grid">
+                            <!-- Client information will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="asset-summary-section">
+                        <h3>Asset Summary</h3>
+                        <div class="asset-breakdown" id="asset-breakdown">
+                            <!-- Asset breakdown will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="liability-section">
+                        <h3>Liability Exposure Analysis</h3>
+                        <div class="exposure-details" id="exposure-details">
+                            <!-- Liability exposure details will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="recommendations-section">
+                        <h3>Insurance Recommendations</h3>
+                        <div class="tier-recommendation" id="tier-recommendation-summary">
+                            <!-- Tier recommendations will be populated here -->
+                        </div>
+                        <div class="tier-details" id="tier-details-summary">
+                            <!-- Tier details will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="next-steps-section">
+                        <h3>Recommended Next Steps</h3>
+                        <ul id="next-steps-list">
+                            <!-- Next steps will be populated here -->
+                        </ul>
+                    </div>
+
+                    <div class="report-footer">
+                        <p><strong>Report Generated by L.U.M.I.A</strong></p>
+                        <p>This report provides professional insurance assessment recommendations based on client asset analysis and risk evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for messages -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title">Message</h3>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
